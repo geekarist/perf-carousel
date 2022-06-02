@@ -6,7 +6,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.border
 import androidx.compose.foundation.focusable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -56,7 +59,7 @@ private fun CustomLazyRow() {
             Text(
                 text = "Item $item",
                 modifier = Modifier
-                    .tvNavigation(scrollState, index)
+                    .dpadNavigation(scrollState, index)
                     .width(156.dp)
                     .aspectRatio(4 / 3F)
                     .onFocusChanged { isFocused = it.isFocused }
@@ -67,7 +70,7 @@ private fun CustomLazyRow() {
     }
 }
 
-fun Modifier.tvNavigation(
+fun Modifier.dpadNavigation(
     scrollState: LazyListState,
     index: Int
 ) = composed {
